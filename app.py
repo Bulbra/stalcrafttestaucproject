@@ -18,6 +18,6 @@ headers = {
     "Authorization": f"Bearer {app_token}",
 }
 response = requests.get(headers=headers,
-    url=f"https://dapi.stalcraft.net/{region}/auction/{item_id}/history")
+    url=f"https://eapi.stalcraft.net/{region}/auction/{item_id}/history")
 # print results
 pp(response.json())
