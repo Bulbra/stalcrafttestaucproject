@@ -2,6 +2,7 @@ import requests
 from pprint import pprint, pp
 from dotenv import load_dotenv
 import os
+from stalcraftapi_model import Stalcraft
 
 # env
 load_dotenv()
@@ -13,11 +14,4 @@ item_id = "4l7p"
 region = "ru"
 
 # response
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": f"Bearer {app_token}",
-}
-response = requests.get(headers=headers,
-    url=f"https://eapi.stalcraft.net/{region}/auction/{item_id}/history")
-# print results
-pp(response.json())
+pp(Stalcraft.get_item_price_history_demoapi(item_id, region, app_token))
