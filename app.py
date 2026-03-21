@@ -8,17 +8,19 @@ from stalcraftapi_model import Stalcraft
 
 # env
 load_dotenv()
-app_token = os.getenv("app_token")
+app_token = os.getenv("token")
 secret_token = os.getenv("secret_token")
 
 # vars
 item_id = "4l7p"
 region = "ru"
 
-def my_func():
-    pp(Stalcraft.get_item_price_history(
-        item=item_id, region=region, token=app_token))
+def get_history():
+    history = Stalcraft.get_item_price_history(
+        item=item_id, region=region, is_demo=True, token=app_token)
+    pp(history)
+
 
 scheduler = BlockingScheduler()
-scheduler.add_job(my_func, 'interval', seconds=5)
+scheduler.add_job(get_history, 'interval', seconds=5)
 scheduler.start()

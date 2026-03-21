@@ -43,7 +43,8 @@ class Stalcraft:
             additional: bool, limit: int, offset: int) -> Response:
         response = requests.get(
             url=url, params=Stalcraft.set_params(order, sort, additional, limit, offset),
-            headers={"Authorization": f"Bearer {token}"})
+            headers={"Authorization": f"Bearer {token}",
+                     "Content-Type": "application/json"})
         return response
 
     @staticmethod
@@ -57,7 +58,6 @@ class Stalcraft:
             params["additional"] = "true"
         else:
             params["additional"] = "false"
-        pp(params)
         return params
 
 
