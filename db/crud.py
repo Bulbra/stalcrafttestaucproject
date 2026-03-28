@@ -28,3 +28,12 @@ async def gey_history_by_time(time: datetime.datetime):
         if not history:
             return None
         return history
+            
+async def gey_history_by_amount(amount: int):
+    with Session(bind=engine) as session:
+        stmt = select(ItemHistoryLot).where(ItemHistoryLot.amount == amount)
+        result = session.execute(stmt)
+        history: ItemHistoryLot = result.scalar()
+        if not history:
+            return None
+        return history
