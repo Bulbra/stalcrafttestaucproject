@@ -10,3 +10,13 @@ async def add_history_lot(
         session.add(StalcraftHistoryTable(
             amount=amount, time=time, price=price))
         session.commit()
+
+async def get_all_history():
+    with Session(bind=engine) as session:
+        stmt = select(StalcraftHistoryTable)
+        result = session.execute(stmt)
+        history: StalcraftHistoryTable = result.scalar()
+        if not history:
+            return None
+        return history
+
