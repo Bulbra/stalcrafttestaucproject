@@ -4,7 +4,7 @@ from db.engine import engine
 from db.models import ItemHistoryLot
 
 async def add_history_lot(
-        amount: int, time: str,
+        amount: int, time: datetime.datetime,
         price: int) -> None:
     with Session(bind=engine) as session:
         session.add(StalcraftHistoryTable(
