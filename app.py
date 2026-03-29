@@ -27,7 +27,8 @@ def get_history():
         amount = i['amount']
         price = i['price']
         asyncio.run(crud.add_history_lot_async(
-            amount=amount, time=times, price=price))
+            amount=amount, time=times, price=price,
+            region=region, item=item_id))
 
 
 scheduler = BlockingScheduler()
