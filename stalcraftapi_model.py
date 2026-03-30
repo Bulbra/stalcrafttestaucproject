@@ -71,7 +71,7 @@ class Stalcraft:
 
     @staticmethod
     def get_regions(token: str,
-                    is_demo: bool = True) -> dict:
+                    is_demo: bool = True) -> list:
         if is_demo:
             version: str = "d"
         else:
