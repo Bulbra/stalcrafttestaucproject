@@ -17,6 +17,6 @@ shell python app.py
 
 ### Авторы
 
-**@maxbaev24**
+**@maxbaev25**
 
 **@Bulbra**
