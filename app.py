@@ -61,6 +61,7 @@ def get_history():
 
 
 
+
 scheduler = BlockingScheduler()
 scheduler.add_job(get_history, 'interval', seconds=5)
 scheduler.start()
