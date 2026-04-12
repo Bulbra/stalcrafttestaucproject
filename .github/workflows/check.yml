@@ -23,3 +23,7 @@ jobs:
           pip install ruff
       - name: ruff run
         run: ruff check --output-format=github
+
+      - name: shutdown ruff
+        run: |
+          echo "Ruff shutdown"
